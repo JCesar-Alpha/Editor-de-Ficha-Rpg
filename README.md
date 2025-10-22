@@ -1,4 +1,3 @@
-
 # Projeto Fich - Sistema de Gerenciamento de RPG
 
 ![Status](https://img.shields.io/badge/Status-Desenvolvimento-yellow)
@@ -276,5 +275,6 @@ Este projeto está licenciado sob a Licença MIT - veja o arquivo [LICENSE](LICE
 ---
 
 **Projeto Fich** - Revolucionando a maneira como jogamos RPG! 🎲✨
+
 
 *Desenvolvido com ❤️ para a comunidade RPG*
