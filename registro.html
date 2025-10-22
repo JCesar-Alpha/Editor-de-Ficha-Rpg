@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles/components.css" />
+    <link rel="stylesheet" href="styles/registro.css" />
+    <title>Registro</title>
+  </head>
+  <body>
+    <!-- Tela de Registro -->
+    <div id="register-screen" class="screen">
+      <div class="login-container">
+        <h1>Criar Conta</h1>
+        <p>Registre-se no Projeto Fich</p>
+
+        <form id="register-form">
+          <div class="form-group">
+            <label for="reg-username">Nome de Usuário</label>
+            <input type="text" id="reg-username" required />
+          </div>
+
+          <div class="form-group">
+            <label for="reg-email">E-mail</label>
+            <input type="email" id="reg-email" required />
+          </div>
+
+          <div class="form-group">
+            <label for="reg-password">Senha</label>
+            <input type="password" id="reg-password" required minlength="6" />
+          </div>
+
+          <div class="form-group">
+            <label for="reg-confirm-password">Confirmar Senha</label>
+            <input type="password" id="reg-confirm-password" required />
+          </div>
+
+          <div class="form-group">
+            <label for="reg-user-type">Tipo de Usuário</label>
+            <select id="reg-user-type" required>
+              <option value="">Selecione...</option>
+              <option value="player">Jogador</option>
+              <option value="master">Mestre</option>
+            </select>
+          </div>
+
+          <!-- <div class="form-group">
+            <label class="checkbox-label">
+              <input type="checkbox" id="reg-terms" required />
+              Aceito os <a href="#" id="terms-link">termos de uso</a> e
+              <a href="#" id="privacy-link">política de privacidade</a>
+            </label>
+          </div>
+
+          
+          <!-- Modal de Termos -->
+          <div id="terms-modal" class="modal">
+            <div class="modal-content terms-modal">
+              <div class="terms-header">
+                <h2>Termos de Uso</h2>
+                <button class="close-button" id="close-terms">&times;</button>
+              </div>
+              <div class="terms-tabs">
+                <button class="terms-tab active" data-tab="terms">
+                  Termos de Uso
+                </button>
+                <button class="terms-tab" data-tab="privacy">
+                  Política de Privacidade
+                </button>
+              </div>
+              <div class="terms-content">
+                <div id="terms-text" class="tab-content active"></div>
+                <div id="privacy-text" class="tab-content"></div>
+              </div>
+              <div class="terms-footer">
+                <label class="checkbox-label">
+                  <input type="checkbox" id="modal-terms-accept" />
+                  Li e aceito os termos
+                </label>
+                <button id="accept-terms" class="btn-primary" disabled>
+                  Aceitar e Continuar
+                </button>
+              </div>
+            </div>
+          </div>
+          <button type="submit" class="btn-primary">Criar Conta</button> 
+        </form>
+
+        <div class="login-footer">
+          <p>Já tem conta? <a href="#" id="login-link">Fazer Login</a></p>
+        </div>
+      </div>
+    </div>
+
+    <script src="scripts/auth.js"></script>
+    <script src="scripts/ficha.js"></script>
+    <script src="scripts/master.js"></script>
+    <script src="scripts/sala.js"></script>
+    <script src="scripts/terms.js"></script>
+    <script src="scripts/main.js"></script>
+  </body>
+</html>

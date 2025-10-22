@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projeto Fich - Sistema de RPG</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/components.css">
+</head>
+<body>
+    <!-- Tela de Login -->
+    <div id="login-screen" class="screen active">
+        <div class="login-container">
+            <h1>Projeto Fich</h1>
+            <p>Sistema completo para gerenciamento de RPG</p>
+            
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="username">Usuário</label>
+                    <input type="text" id="username" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Senha</label>
+                    <input type="password" id="password" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="user-type">Tipo de Usuário</label>
+                    <select id="user-type" required>
+                        <option value="">Selecione...</option>
+                        <option value="player">Jogador</option>
+                        <option value="master">Mestre</option>
+                    </select>
+                </div>
+                
+                <button type="submit" class="btn-primary">Entrar</button>
+            </form>
+            
+            <div class="login-footer">
+                <p>Não tem conta? <a href="registro.html" id="register-link">Registre-se</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tela Principal do Jogador -->
+    <div id="player-screen" class="screen">
+        <header class="header">
+            <div class="header-content">
+                <h1>Área do Jogador</h1>
+                <div class="user-menu">
+                    <span id="player-username">Usuário</span>
+                    <button id="player-logout" class="btn-secondary">Sair</button>
+                </div>
+            </div>
+        </header>
+        
+        <main class="main-content">
+            <div class="sidebar">
+                <nav class="nav-menu">
+                    <ul>
+                        <li><a href="#" class="nav-link active" data-section="fichas">Minhas Fichas</a></li>
+                        <li><a href="#" class="nav-link" data-section="salas">Salas de Sessão</a></li>
+                        <li><a href="#" class="nav-link" data-section="ferramentas">Ferramentas</a></li>
+                    </ul>
+                </nav>
+            </div>
+            
+            <div class="content-area">
+                <!-- Seção de Fichas -->
+                <section id="fichas-section" class="content-section active">
+                    <div class="section-header">
+                        <h2>Minhas Fichas de Personagem</h2>
+                        <button id="upload-ficha" class="btn-primary">Enviar Nova Ficha</button>
+                    </div>
+                    
+                    <div class="fichas-grid" id="fichas-container">
+                        <!-- Fichas serão carregadas dinamicamente aqui -->
+                    </div>
+                </section>
+                
+                <!-- Seção de Salas -->
+                <section id="salas-section" class="content-section">
+                    <div class="section-header">
+                        <h2>Salas de Sessão</h2>
+                        <button id="join-room" class="btn-primary">Entrar em Sala</button>
+                    </div>
+                    
+                    <div class="rooms-list" id="rooms-container">
+                        <!-- Salas serão carregadas dinamicamente aqui -->
+                    </div>
+                </section>
+                
+                <!-- Seção de Ferramentas -->
+                <section id="ferramentas-section" class="content-section">
+                    <div class="section-header">
+                        <h2>Ferramentas de Utilidade</h2>
+                    </div>
+                    
+                    <div class="tools-grid">
+                        <div class="tool-card">
+                            <h3>Integração Worldbear</h3>
+                            <p>Conecte-se ao Worldbear para visualizar mapas de RPG</p>
+                            <button class="btn-secondary" id="connect-worldbear">Conectar</button>
+                        </div>
+                        
+                        <div class="tool-card">
+                            <h3>Calculadora de Dados</h3>
+                            <p>Calcule rolagens de dados complexas</p>
+                            <button class="btn-secondary" id="open-dice-calc">Abrir</button>
+                        </div>
+                        
+                        <div class="tool-card">
+                            <h3>Gerador de NPCs</h3>
+                            <p>Crie NPCs rapidamente para suas sessões</p>
+                            <button class="btn-secondary" id="generate-npc">Gerar</button>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <!-- Tela Principal do Mestre -->
+    <div id="master-screen" class="screen">
+        <header class="header">
+            <div class="header-content">
+                <h1>Área do Mestre</h1>
+                <div class="user-menu">
+                    <span id="master-username">Mestre</span>
+                    <button id="master-logout" class="btn-secondary">Sair</button>
+                </div>
+            </div>
+        </header>
+        
+        <main class="main-content">
+            <div class="sidebar">
+                <nav class="nav-menu">
+                    <ul>
+                        <li><a href="#" class="nav-link active" data-section="campanhas">Minhas Campanhas</a></li>
+                        <li><a href="#" class="nav-link" data-section="livros">Livros de Regras</a></li>
+                        <li><a href="#" class="nav-link" data-section="salas-master">Salas de Sessão</a></li>
+                        <li><a href="#" class="nav-link" data-section="ferramentas-master">Ferramentas</a></li>
+                    </ul>
+                </nav>
+            </div>
+            
+            <div class="content-area">
+                <!-- Seção de Campanhas -->
+                <section id="campanhas-section" class="content-section active">
+                    <div class="section-header">
+                        <h2>Minhas Campanhas</h2>
+                        <button id="create-campaign" class="btn-primary">Nova Campanha</button>
+                    </div>
+                    
+                    <div class="campaigns-grid" id="campaigns-container">
+                        <!-- Campanhas serão carregadas dinamicamente aqui -->
+                    </div>
+                </section>
+                
+                <!-- Seção de Livros -->
+                <section id="livros-section" class="content-section">
+                    <div class="section-header">
+                        <h2>Livros de Regras</h2>
+                        <button id="upload-livro" class="btn-primary">Enviar Livro</button>
+                    </div>
+                    
+                    <div class="books-grid" id="books-container">
+                        <!-- Livros serão carregadas dinamicamente aqui -->
+                    </div>
+                </section>
+                
+                <!-- Seção de Salas (Mestre) -->
+                <section id="salas-master-section" class="content-section">
+                    <div class="section-header">
+                        <h2>Gerenciar Salas de Sessão</h2>
+                        <button id="create-room" class="btn-primary">Criar Sala</button>
+                    </div>
+                    
+                    <div class="rooms-management" id="rooms-management-container">
+                        <!-- Gerenciamento de salas será carregado dinamicamente aqui -->
+                    </div>
+                </section>
+                
+                <!-- Seção de Ferramentas (Mestre) -->
+                <section id="ferramentas-master-section" class="content-section">
+                    <div class="section-header">
+                        <h2>Ferramentas do Mestre</h2>
+                    </div>
+                    
+                    <div class="tools-grid">
+                        <div class="tool-card">
+                            <h3>Painel de Controle</h3>
+                            <p>Controle todos os aspectos da sessão em tempo real</p>
+                            <button class="btn-secondary" id="open-control-panel">Abrir</button>
+                        </div>
+                        
+                        <div class="tool-card">
+                            <h3>Gerador de Encontros</h3>
+                            <p>Crie encontros balanceados para seus jogadores</p>
+                            <button class="btn-secondary" id="generate-encounter">Gerar</button>
+                        </div>
+                        
+                        <div class="tool-card">
+                            <h3>Editor de Regras</h3>
+                            <p>Adapte as regras do sistema para sua campanha</p>
+                            <button class="btn-secondary" id="open-rules-editor">Abrir</button>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal para Upload de PDF -->
+    <div id="upload-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Enviar Ficha PDF</h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="upload-form">
+                    <div class="form-group">
+                        <label for="ficha-name">Nome da Ficha</label>
+                        <input type="text" id="ficha-name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="ficha-file">Arquivo PDF</label>
+                        <input type="file" id="ficha-file" accept=".pdf" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="ficha-system">Sistema de RPG</label>
+                        <select id="ficha-system">
+                            <option value="custom">Personalizado</option>
+                            <option value="dnd">Dungeons & Dragons</option>
+                            <option value="pathfinder">Pathfinder</option>
+                            <option value="callofcthulhu">Call of Cthulhu</option>
+                            <option value="tormenta">Tormenta RPG</option>
+                        </select>
+                    </div>
+                    
+                    <div class="modal-actions">
+                        <button type="button" class="btn-secondary close-modal">Cancelar</button>
+                        <button type="submit" class="btn-primary">Enviar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para Sala de Sessão -->
+    <div id="room-modal" class="modal">
+        <div class="modal-content room-modal">
+            <div class="modal-header">
+                <h3>Sala de Sessão: <span id="room-name"></span></h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="room-layout">
+                    <div class="room-sidebar">
+                        <h4>Participantes</h4>
+                        <ul id="room-participants">
+                            <!-- Lista de participantes -->
+                        </ul>
+                        
+                        <div class="room-tools">
+                            <h4>Ferramentas</h4>
+                            <button class="btn-secondary" id="open-dice-roller">Rolagem de Dados</button>
+                            <button class="btn-secondary" id="open-map">Abrir Mapa</button>
+                            <button class="btn-secondary" id="open-chat">Chat</button>
+                        </div>
+                    </div>
+                    
+                    <div class="room-main">
+                        <div class="room-content" id="room-content">
+                            <!-- Conteúdo da sala (fichas, mapas, etc) -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Termos -->
+    <div id="terms-modal" class="modal">
+        <div class="modal-content terms-modal">
+            <div class="modal-header">
+                <h3>Termos de Uso</h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="terms-content" id="terms-content">
+                    <!-- Conteúdo dos termos será carregado aqui -->
+                </div>
+                <div class="modal-actions">
+                    <button class="btn-primary" id="accept-terms">Aceitar Termos</button>
+                    <button class="btn-secondary close-modal">Fechar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="scripts/auth.js"></script>
+    <script src="scripts/ficha.js"></script>
+    <script src="scripts/master.js"></script>
+    <script src="scripts/sala.js"></script>
+    <script src="scripts/terms.js"></script>
+    <script src="scripts/main.js"></script>
+</body>
+</html>
