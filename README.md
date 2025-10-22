@@ -1,1 +1,0 @@
-# Editor-de-Ficha-Rpg
